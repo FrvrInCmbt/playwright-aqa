@@ -1,5 +1,5 @@
 // @ts-check
-const { defineConfig, devices } = require('@playwright/test');
+import { defineConfig, devices } from '@playwright/test';
 
 /**
  * Read environment variables from file.
@@ -8,22 +8,26 @@ const { defineConfig, devices } = require('@playwright/test');
 // require('dotenv').config({ path: path.resolve(__dirname, '.env') });
 
 /**
- * @see https://playwright.dev/docs/test-configuration
+  @see https://playwright.dev/docs/test-configuration
  */
-module.exports = defineConfig({
+export default defineConfig({
   testDir: './tests',
   fullyParallel: false,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
-  
-  use: {
-    /* Base URL to use in actions like `await page.goto('/')`. */
-    // baseURL: 'http://127.0.0.1:3000',
+  testMatch: "**test.mjs",
 
-    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on',
+  use: {
+    headless: false,
+    baseURL: "https://qauto.forstudy.space/",
+    httpCredentials: {
+      username: "guest",
+      password: "welcome2qauto"
+    },
+
+    trace: "retain-on-failure",
     screenshot: 'only-on-failure',
     video: 'off',
     

@@ -2,8 +2,10 @@
   "name": "playwright-aqa",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "npx playwright test"
+    "test": "npx playwright test",
+    "debug": "npx playwright test registration.test.mjs --debug"
   },
   "keywords": [],
   "author": "",
