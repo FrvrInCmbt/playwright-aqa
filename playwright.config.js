@@ -20,7 +20,7 @@ export default defineConfig({
   testMatch: "**test.mjs",
 
   use: {
-    headless: false,
+    headless: true,
     baseURL: "https://qauto.forstudy.space/",
     httpCredentials: {
       username: "guest",
