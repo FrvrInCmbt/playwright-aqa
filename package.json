@@ -1,0 +1,18 @@
+{
+  "name": "playwright-aqa",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "npx playwright test",
+    "debug": "npx playwright test registration.test.mjs --debug"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.44.1",
+    "@types/node": "^20.14.6"
+  }
+}
