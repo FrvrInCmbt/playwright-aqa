@@ -24,8 +24,8 @@ export default defineConfig({
     headless: true,
     baseURL: process.env.BASE_URL,
     httpCredentials: {
-      username: process.env.USER_NAME,
-      password: process.env.USER_PASSWORD
+      username: "process.env.USER_NAME",
+      password: "process.env.USER_PASSWORD"
     },
 
     trace: "retain-on-failure",
