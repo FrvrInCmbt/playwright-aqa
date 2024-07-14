@@ -1,6 +1,7 @@
 import faker from "faker";
 import { BasePage } from "./BasePage.mjs";
 
+
 export class MainPage extends BasePage {
     constructor (page) {
         super(page, "/")

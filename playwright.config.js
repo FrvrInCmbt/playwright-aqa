@@ -5,8 +5,9 @@ import { defineConfig, devices } from '@playwright/test';
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-import dotenv from 'dotenv';
-dotenv.config();
+
+import dotenv from "dotenv"
+dotenv.config()
 
 /**
   @see https://playwright.dev/docs/test-configuration
@@ -24,8 +25,8 @@ export default defineConfig({
     headless: true,
     baseURL: process.env.BASE_URL,
     httpCredentials: {
-      username: "process.env.USER_NAME",
-      password: "process.env.USER_PASSWORD"
+      username: process.env.USER_NAME || "",
+      password: process.env.USER_PASSWORD || ""
     },
 
     trace: "retain-on-failure",
