@@ -19,7 +19,8 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
-  testMatch: "**test.mjs",
+  testMatch: ["**/*test.js", "**/*test.mjs"],
+  
 
   use: {
     headless: true,
@@ -37,15 +38,34 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
-    {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
-    },
-
     //{
-    //  name: 'firefox',
-    //  use: { ...devices['Desktop Firefox'] },
+    //  name: "login",
+    //  testDir: "./tests/setup",
+    //  testMatch: "**.setup.js",
+    //  use: {
+    //    ...devices["Desktop Chrome"],
+    //  }
     //},
+    //{
+    //  name: 'cars',
+    //  testDir: "./tests/storage",
+    //  testMatch: "**.test.js",
+    //  use: { 
+    //    ...devices['Desktop Chrome'],
+    //    storageState: "session-storage.json"
+    //   },
+    //  dependencies: ["login"]
+    //},
+    {
+      name: 'fixture',
+      testDir: "./tests/fixture",
+      testMatch: "**.test.js",
+      use: {
+        ...devices['Desktop Chrome'],
+        //storageState: "session-storage.json"
+       },
+      //dependencies: ["login"]
+    },
 //
     //{
     //  name: 'webkit',

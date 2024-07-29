@@ -1,5 +1,6 @@
 import faker from "faker";
 import { BasePage } from "./BasePage.mjs";
+import { LogInModalComponent } from "../components/LogInModalComponent.mjs";
 
 
 export class MainPage extends BasePage {
@@ -28,6 +29,7 @@ export class MainPage extends BasePage {
         this._passwordLengthError = this._registrationModal.getByText("Password has to be from 8 to 15 characters long and contain at least one integer, one capital, and one small letter")
         this._rePasswordRequiredError = this._registrationModal.getByText("Re-enter password required")
         this._rePasswordLengthError = this._registrationModal.getByText("Password has to be from 8 to 15 characters long and contain at least one integer, one capital, and one small letter")
+        this._LogInModalComponent = new LogInModalComponent(this._page)
     }
 
     async registerNewUser(){
@@ -102,5 +104,10 @@ export class MainPage extends BasePage {
         await this._reEnterPasswordInput.fill("testsasatsatsatsg")
         await this._rePasswordLengthError
         await this._reEnterPasswordInput.fill(faker.internet.password())
+    }
+
+    async garageLoggedIn(login, password) {
+        await this._signInBtn.click()
+        await this._LogInModalComponent.login(login, password)
     }
 }

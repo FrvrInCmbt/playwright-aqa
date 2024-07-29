@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "test": "npx playwright test",
-    "debug": "npx playwright test registration.test.mjs --debug"
+    "debug": "npx playwright test cars.test.js --debug",
+    "list": "npx playwright test --list"
   },
   "keywords": [],
   "author": "",
